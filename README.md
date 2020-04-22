@@ -1,2 +1,2 @@
-# animal-crossing-cli
-that's a command interface wiki of the animal-crossing
+# Animal Crossing Cli
+The command line interface tools for the AnimalCrossing
