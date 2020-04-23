@@ -11,14 +11,14 @@
 
 package fish
 
-import "animal-crossing-cli/pkg/common"
+import "animal-crossing-cli/pkg/base"
 
 type Fish struct {
-	Name      string       `json:"name"`
-	Price     int          `json:"price"`
-	Month     common.Month `json:"month"`
-	Time      []string     `json:"time"`
-	Place     []string     `json:"place"`
-	Condition string       `json:"condition"`
-	Shadow    string       `json:"shadow"`
+	Name      string     `json:"name"`
+	Price     int        `json:"price"`
+	Month     base.Month `json:"month"`
+	Time      []string   `json:"time"`
+	Place     []string   `json:"place"`
+	Condition string     `json:"condition"`
+	Shadow    string     `json:"shadow"`
 }

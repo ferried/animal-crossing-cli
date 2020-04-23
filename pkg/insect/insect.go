@@ -12,31 +12,31 @@
 package insect
 
 import (
-	"animal-crossing-cli/pkg/common"
+	"animal-crossing-cli/pkg/base"
 	"animal-crossing-cli/pkg/utils"
 	"encoding/json"
 )
 
 var (
-	Insects *[]Insect
+	insects *[]Insect
 )
 
 type Insect struct {
-	Name      string       `json:"name"`
-	Price     int          `json:"price"`
-	Month     common.Month `json:"month"`
-	Time      []string     `json:"time"`
-	Place     []string     `json:"place"`
-	Condition string       `json:"condition"`
+	Name      string     `json:"name"`
+	Price     int        `json:"price"`
+	Month     base.Month `json:"month"`
+	Time      []string   `json:"time"`
+	Place     []string   `json:"place"`
+	Condition string     `json:"condition"`
 }
 
 func (insect *Insect) Get() *[]Insect {
-	return Insects
+	return insects
 }
 
 func Store() {
 	d := utils.Store("insect.json")
-	json.Unmarshal(d, &Insects)
+	json.Unmarshal(d, &insects)
 }
 
 func init() {
