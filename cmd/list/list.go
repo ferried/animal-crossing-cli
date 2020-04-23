@@ -2,10 +2,8 @@ package list
 
 import (
 	"animal-crossing-cli/pkg/insect"
-	"github.com/modood/table"
 	"github.com/spf13/cobra"
 	"os"
-	"strings"
 )
 
 var (
@@ -20,16 +18,10 @@ var (
 		Example: "acc list insect",
 		Run: func(cmd *cobra.Command, args []string) {
 			if len(ins) != 0 {
-				if strings.EqualFold(ins, "insects") {
-					table.Output(*insect.Get())
-					os.Exit(0)
-				} else {
-					for _, v := range *insect.Get() {
-						if strings.EqualFold(ins, v.Name) {
-							table.Output([]insect.Insect{v})
-						}
-					}
-				}
+				insect.HandleCommand(ins)
+			} else {
+				cmd.Help()
+				os.Exit(0)
 			}
 		},
 	}
