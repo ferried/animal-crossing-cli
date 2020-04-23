@@ -21,13 +21,14 @@ func HandleCommand(ins string) {
 		table.Output(*Get())
 		os.Exit(0)
 	} else {
-		find := make([]Insect, 1)
+		var find []Insect
 		for _, v := range *Get() {
 			if strings.EqualFold(ins, v.Name) {
+				fmt.Println(v)
 				find = append(find, v)
 			}
 		}
-		if find != nil {
+		if find == nil {
 			fmt.Printf("没有找到名称为%s的项\n", ins)
 		} else {
 			table.Output(find)
