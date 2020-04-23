@@ -30,7 +30,7 @@ type Insect struct {
 	Condition string     `json:"condition"`
 }
 
-func (insect *Insect) Get() *[]Insect {
+func Get() *[]Insect {
 	return insects
 }
 
