@@ -32,8 +32,8 @@ func Cmd() *cobra.Command {
 }
 
 func init() {
-	listCmd.Flags().StringVarP(&ins, "insect", "i", "insects", "List all insects")
-	listCmd.Flags().StringVarP(&fi, "fish", "f", "fishes", "List all fishes")
-	listCmd.Flags().StringVarP(&ani, "animal", "a", "animals", "List all animals")
-	listCmd.Flags().StringVarP(&vil, "villager", "v", "villagers", "List all villagers")
+	listCmd.Flags().StringVarP(&ins, "insect", "i", "", "List all insects")
+	listCmd.Flags().StringVarP(&fi, "fish", "f", "", "List all fishes")
+	listCmd.Flags().StringVarP(&ani, "animal", "a", "", "List all animals")
+	listCmd.Flags().StringVarP(&vil, "villager", "v", "", "List all villagers")
 }
