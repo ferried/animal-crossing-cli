@@ -11,9 +11,10 @@ package insect
 
 import (
 	"fmt"
-	"github.com/modood/table"
 	"os"
 	"strings"
+
+	"github.com/modood/table"
 )
 
 func HandleCommand(ins string) {
@@ -24,7 +25,6 @@ func HandleCommand(ins string) {
 		var find []Insect
 		for _, v := range *Get() {
 			if strings.EqualFold(ins, v.Name) {
-				fmt.Println(v)
 				find = append(find, v)
 			}
 		}
