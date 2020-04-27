@@ -1,0 +1,36 @@
+/*
+ * @Date: 2020-04-23 09:37:41
+ * @Author: ferried
+ * @Email: harlancui@outlook.com
+ * @LastEditors: ferried
+ * @LastEditTime: 2020-04-27 22:15:40
+ * @Editor: Visual Studio Code
+ * @Desc: nil
+ * @License: nil
+ */
+
+package base
+
+import (
+	"animal-crossing-cli/pkg/utils"
+	"encoding/json"
+)
+
+var (
+	fishes *[]Fish
+)
+
+func init() {
+	d := utils.Store("fish.json")
+	json.Unmarshal(d, &fishes)
+}
+
+type Fish struct {
+	Name      string   `json:"name"`
+	Price     int      `json:"price"`
+	Month     Month    `json:"month"`
+	Time      []string `json:"time"`
+	Place     []string `json:"place"`
+	Condition string   `json:"condition"`
+	Shadow    string   `json:"shadow"`
+}

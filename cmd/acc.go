@@ -1,7 +1,18 @@
+/*
+ * @Date: 2020-04-23 10:51:44
+ * @Author: ferried
+ * @Email: harlancui@outlook.com
+ * @LastEditors: ferried
+ * @LastEditTime: 2020-04-26 16:51:01
+ * @Editor: Visual Studio Code
+ * @Desc: nil
+ * @License: nil
+ */
 package cmd
 
 import (
 	"animal-crossing-cli/cmd/list"
+
 	"github.com/spf13/cobra"
 )
 
