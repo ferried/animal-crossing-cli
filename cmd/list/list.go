@@ -12,7 +12,6 @@ package list
 
 import (
 	"animal-crossing-cli/pkg/base"
-	"fmt"
 	"os"
 	"reflect"
 
@@ -53,7 +52,8 @@ func init() {
 }
 
 func HandleCommand(name string, ty string) {
-	datas := base.Get(ty)
-	fmt.Println(datas)
-	os.Exit(0)
+	v := base.Fish{}
+	i := base.Insect{}
+	v.PrintAll()
+	i.PrintAll()
 }

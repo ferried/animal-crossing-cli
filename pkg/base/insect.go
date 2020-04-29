@@ -14,6 +14,8 @@ package base
 import (
 	"animal-crossing-cli/pkg/utils"
 	"encoding/json"
+	"github.com/modood/table"
+	"strings"
 )
 
 var (
@@ -33,4 +35,16 @@ type Insect struct {
 	Time      []string `json:"time"`
 	Place     []string `json:"place"`
 	Condition string   `json:"condition"`
+}
+
+func (insect Insect) PrintByName(name string) {
+	for _, i := range *insects {
+		if strings.EqualFold(i.Name, name) {
+			table.Output(i)
+		}
+	}
+}
+
+func (insect Insect) PrintAll() {
+	table.Output(*insects)
 }

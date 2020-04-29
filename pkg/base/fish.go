@@ -14,6 +14,8 @@ package base
 import (
 	"animal-crossing-cli/pkg/utils"
 	"encoding/json"
+	"github.com/modood/table"
+	"strings"
 )
 
 var (
@@ -26,11 +28,22 @@ func init() {
 }
 
 type Fish struct {
-	Name      string   `json:"name"`
-	Price     int      `json:"price"`
-	Month     Month    `json:"month"`
-	Time      []string `json:"time"`
-	Place     []string `json:"place"`
-	Condition string   `json:"condition"`
-	Shadow    string   `json:"shadow"`
+	Name   string   `json:"name"`
+	Price  int      `json:"price"`
+	Month  Month    `json:"month"`
+	Time   []string `json:"time"`
+	Place  []string `json:"place"`
+	Shadow string   `json:"shadow"`
+}
+
+func (fish Fish) PrintByName(name string) {
+	for _, i := range *fishes {
+		if strings.EqualFold(i.Name, name) {
+			table.Output(i)
+		}
+	}
+}
+
+func (fish Fish) PrintAll() {
+	table.Output(*fishes)
 }
