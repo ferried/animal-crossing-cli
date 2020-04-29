@@ -39,7 +39,7 @@ type Fish struct {
 func (fish Fish) PrintByName(name string) {
 	for _, i := range *fishes {
 		if strings.EqualFold(i.Name, name) {
-			table.Output(i)
+			table.Output([]Fish{i})
 		}
 	}
 }

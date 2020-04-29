@@ -14,6 +14,7 @@ import (
 	"animal-crossing-cli/pkg/base"
 	"os"
 	"reflect"
+	"strings"
 
 	"github.com/spf13/cobra"
 )
@@ -52,8 +53,22 @@ func init() {
 }
 
 func HandleCommand(name string, ty string) {
-	v := base.Fish{}
-	i := base.Insect{}
-	v.PrintAll()
-	i.PrintAll()
+	switch ty {
+	case "Fish":
+		if strings.EqualFold(name, "all") {
+			base.Fish{}.PrintAll()
+		}
+		if !strings.EqualFold(name, "all") {
+			base.Fish{}.PrintByName(name)
+		}
+		break
+	case "Insect":
+		if strings.EqualFold(name, "all") {
+			base.Insect{}.PrintAll()
+		}
+		if !strings.EqualFold(name, "all") {
+			base.Insect{}.PrintByName(name)
+		}
+		break
+	}
 }

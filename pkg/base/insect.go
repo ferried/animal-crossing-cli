@@ -40,7 +40,7 @@ type Insect struct {
 func (insect Insect) PrintByName(name string) {
 	for _, i := range *insects {
 		if strings.EqualFold(i.Name, name) {
-			table.Output(i)
+			table.Output([]Insect{i})
 		}
 	}
 }
