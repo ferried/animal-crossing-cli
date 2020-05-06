@@ -29,3 +29,7 @@ jobs:
 
       - name: test code
         run: go test
+
+      - name: merge
+        run: |
+          git checkout origin/master && git merge devp && git push origin/master
