@@ -1,9 +1,9 @@
 name: Go
 on:
   push:
-    branches: [ devp ]
+    branches: [ master ]
   pull_request:
-    branches: [ devp ]
+    branches: [ master ]
 jobs:
   release:
     name: release
