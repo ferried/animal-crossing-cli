@@ -42,6 +42,9 @@ jobs:
         uses: K-Phoen/semver-release-action@master
         with:
           release_branch: "master"
-        env:
+          release_strategy: "release"
           tag_format: "v%major%.%minor%.%patch%"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
