@@ -28,6 +28,4 @@ jobs:
           fi
 
       - name: test code
-          run: go test
-
-
+        run: go test
