@@ -39,7 +39,7 @@ jobs:
           MERGE_COMMIT_MESSAGE: "pull-request-title"
 
       - name: auto release
-        uses: "K-Phoen/semver-release-action"
+        uses: K-Phoen/semver-release-action@master
         with:
           release_branch: "master"
         env:
