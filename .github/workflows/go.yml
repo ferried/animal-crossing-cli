@@ -30,6 +30,10 @@ jobs:
       - name: test code
         run: go test
 
-      - name: merge
-        run: |
-          git checkout master && git merge devp && git push
+      - name: auto merge
+        uses: "pascalgn/automerge-action@629929da409181990e4e638dcf84a74e11d3af66"
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+          MERGE_LABELS: "automerge,!work in progress"
+          MERGE_METHOD: "squash"
+          MERGE_COMMIT_MESSAGE: "pull-request-title"
