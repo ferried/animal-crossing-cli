@@ -14,7 +14,6 @@ package base
 import (
 	"animal-crossing-cli/pkg/utils"
 	"encoding/json"
-	"fmt"
 	"github.com/modood/table"
 	"strings"
 )
@@ -46,6 +45,5 @@ func (fish Fish) PrintByName(name string) {
 }
 
 func (fish Fish) PrintAll() {
-	fmt.Println("log")
 	table.Output(*fishes)
 }
