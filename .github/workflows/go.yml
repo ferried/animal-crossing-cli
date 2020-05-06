@@ -32,4 +32,4 @@ jobs:
 
       - name: merge
         run: |
-          git checkout origin/master && git merge devp && git push origin/master
+          git checkout master && git merge devp && git push
