@@ -5,11 +5,10 @@ on:
   pull_request:
     branches: [ master ]
 jobs:
-  release:
-    name: release
+  test:
+    name: test
     runs-on: ubuntu-latest
     steps:
-
       - name: setup go
         uses: actions/setup-go@v2
         with:
@@ -30,6 +29,11 @@ jobs:
       - name: test code
         run: go test
 
+  merge:
+    runs-on: ubuntu-latest
+    name: merge
+    needs: [test]
+    steps:
       - name: auto merge
         uses: "pascalgn/automerge-action@629929da409181990e4e638dcf84a74e11d3af66"
         env:
@@ -38,13 +42,17 @@ jobs:
           MERGE_METHOD: "squash"
           MERGE_COMMIT_MESSAGE: "pull-request-title"
 
+  release:
+    runs-on: ubuntu-latest
+    name: release
+    needs: [test,merge]
+    steps:
       - name: auto release
-        uses: K-Phoen/semver-release-action@master
-        with:
-          release_branch: "master"
-          release_strategy: "release"
-          tag_format: "v%major%.%minor%.%patch%"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+          uses: K-Phoen/semver-release-action@master
+          with:
+            release_branch: "master"
+            release_strategy: "release"
+            tag_format: "v%major%.%minor%.%patch%"
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
