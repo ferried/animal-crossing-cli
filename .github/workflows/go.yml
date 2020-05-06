@@ -37,3 +37,11 @@ jobs:
           MERGE_LABELS: "automerge,!work in progress"
           MERGE_METHOD: "squash"
           MERGE_COMMIT_MESSAGE: "pull-request-title"
+
+      - name: auto release
+        uses: "K-Phoen/semver-release-action"
+        with:
+          release_branch: "master"
+        env:
+          tag_format: "v%major%.%minor%.%patch%"
+
